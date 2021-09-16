@@ -1,0 +1,28 @@
+<h1>商品新規登録</h1>
+
+<%= form_with model: @item, local:true do |f| %>
+
+  <h4>商品画像</h4>
+  <%= f.attachment_field :image_id %>
+
+  <h4>商品名</h4>
+  <%= f.text_field :name %>
+
+  <h4>商品説明</h4>
+  <%= f.text_area :introduction %>
+
+  <h4>ジャンル</h4>
+  <%= f.collection_select :name, genres.all, :genre_id, :name, include_blank: "選択して下さい" %>
+
+  <h4>税抜価格</h4>
+  <%= f.text_field :price %>
+
+  <h4>販売ステータス</h4>
+  <!--<%= f.label :sales_status, '販売中', value: 1 %>-->
+  <!--<%= f.radio_button :sales_status, '1' %>-->
+
+  <!--<%= f.label :sales_status, '販売停止中', value: 0 %>-->
+  <!--<%= f.radio_button :sales_status, '0' %>-->
+
+<% end %>
+
