@@ -1,0 +1,24 @@
+<div class="container">
+  <h1>会員一覧</h1>
+
+  <table class="table">
+    <thead>
+      <tr>
+        <th>会員ID</th>
+        <th>氏名</th>
+        <th>メールアドレス</th>
+      </tr>
+    </thead>
+
+    <tbody>
+      <% @customers.each do |customer, i| %>
+      <tr>
+        <td><%= i %></td>
+        <td><%= link_to customer.name, admin_customer_path(customer.id) %></td>
+        <td><%= customer.email %></td>
+      </tr>
+      <% end %>
+    </tbody>
+  </table>
+
+</div>

@@ -1,0 +1,42 @@
+<div class="container">
+  <h1>注文履歴詳細</h1>
+
+    <h4>購入者</h4>
+    <%= @customer.customer %>
+
+    <h4>注文日</h4>
+    <%= @customer.last_name first_name %>
+
+    <h4>配送先</h4>
+    <%= @customer.last_name_kana first_name_kana %>
+
+    <h4>支払方法</h4>
+    <%= @customer.postal_code %>
+    
+    <table class="table">
+    <thead>
+      <tr>
+        <th>商品名</th>
+        <th>単価（税込）</th>
+        <th>数量</th>
+        <th>小計</th>
+      </tr>
+    </thead>
+
+    <tbody>
+      <% @orders.each do |order| %>
+      <tr>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+      </tr>
+      <% end %>
+    </tbody>
+  </table>
+
+  
+  <h4>商品合計</h4>
+  <h4>送料</h4>
+  <h4></h4>
+</div>
