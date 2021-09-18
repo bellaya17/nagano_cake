@@ -10,6 +10,80 @@
   </head>
 
   <body>
+    <header>
+      <h1 class="heading">ながのCAKE</h1>
+      <% if admin_signed_in? %>
+
+      <nav>
+        <ul class="nav-list">
+
+        <li class="nav-list-item">
+          <%= link_to "商品一覧", admin_items_path, class: 'btn btn-default' %>
+
+          <%#= link_to admin_items_path do %>
+          <!--<button class="btn btn-default">商品一覧</button>-->
+          <%# end %>
+
+        </li>
+
+        <li class="nav-list-item">
+          <%= link_to "会員一覧", admin_items_path, class: "btn btn-primary" %>
+          <%#= link_to admin_items_path do %>
+          <!--<button class="btn btn-default">会員一覧</button>-->
+          <%# end %>
+        </li>
+
+        <li class="nav-list-item">
+          <%= link_to "注文履歴一覧", admin_customers_path, class: "btn btn-primary" %>
+          <%#= link_to admin_customers_path do %>
+          <!--<button class="btn btn-default">注文履歴一覧</button>-->
+          <%# end %>
+        </li>
+
+        <li class="nav-list-item">
+          <%= link_to "ジャンル一覧", genres_path, class: "btn btn-primary" %>
+          <%#= link_to genres_path do %>
+          <!--<button class="btn btn-default">ジャンル一覧</button>-->
+          <%# end %>
+        </li>
+
+        <li class="nav-list-item">
+          <%= link_to "ログアウト", destroy_admin_session_path, method: :delete, class: "btn btn-primary" %>
+          <%#= link_to destroy_admin_session_path, method: :delete do %>
+          <!--<button class="btn btn-default">ログアウト</button>-->
+          <%# end %>
+        </li>
+
+        <% else %>
+
+        <!--会員側ログイン前のヘッダーと同じ？-->
+
+        <li class="nav-list-item">
+          <%= link_to "About", admin_items_path, class: "btn btn-primary" %>
+        </li>
+
+        <li class="nav-list-item">
+          <%= link_to "商品一覧", admin_items_path, class: "btn btn-primary" %>
+        </li>
+
+        <li class="nav-list-item">
+          <%= link_to "新規登録", admin_items_path, class: "btn btn-primary" %>
+        </li>
+
+        <li class="nav-list-item">
+          <%= link_to "ログイン",  class: "btn btn-primary" %>
+        </li>
+
+      </ul>
+      </nav>
+      <% end %>
+
+    </header>
+    
+    
+    
     <%= yield %>
+    <footer></footer>
+    
   </body>
 </html>
