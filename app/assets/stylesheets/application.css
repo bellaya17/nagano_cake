@@ -113,6 +113,18 @@ table th,table td{
   border-bottom: none;
 }
 
+/*About画面*/
+
+.about-wrapper {
+  text-align: center;
+}
+
+.about-heading {
+  font-size: 50px;
+  margin-top: 30px;
+  margin-bottom: 30px;
+}
+
 /*ここからフッター*/
 footer {
   width: 100%;
