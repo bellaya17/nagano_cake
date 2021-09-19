@@ -19,7 +19,8 @@
    padding: 0;
    box-sizing: border-box;
  }
-   
+
+/*ここからヘッダー*/
 header {
   width: 100%;
   padding: 35px 0;
@@ -50,13 +51,72 @@ nav {
   color : #ff7043;
 }
 
+/*ここからcontainer*/
+
 .container {
   height: 600px;
+  
 }
 
+table{
+  border-collapse: collapse;
+  border-spacing: 0;
+  width: 100%;
+}
+
+table th {
+  background-color: #EEEEEE;
+}
+table tr{
+  border-bottom: solid 1px #eee;
+  cursor: pointer;
+}
+
+table tr:hover{
+  background-color: #d4f0fd;
+}
+
+table th,table td{
+  text-align: center;
+  width: 25%;
+  padding: 15px 0;
+}
+
+.btn-warapper {
+  position: relative;
+
+}
+
+.btn-real {
+  position: absolute;
+  top: px;
+  right: 10px;
+  display: inline-block;
+  text-decoration: none;
+  color: rgba(152, 152, 152, 0.43);
+  width: 40px;
+  height: 40px;
+  line-height: 40px;
+  font-size: 20px;
+  border-radius: 50%;
+  text-align: center;
+  overflow: hidden;
+  font-weight: bold;
+  background-image: linear-gradient(#e8e8e8 0%, #d6d6d6 100%);
+  text-shadow: 1px 1px 1px rgba(255, 255, 255, 0.66);
+  box-shadow: inset 0 2px 0 rgba(255,255,255,0.5), 0 2px 2px rgba(0, 0, 0, 0.19);
+  border-bottom: solid 2px #b5b5b5;
+}
+
+.btn-real:active {
+  box-shadow: inset 0 1px 0 rgba(255,255,255,0.5), 0 2px 2px rgba(0, 0, 0, 0.19);
+  border-bottom: none;
+}
+
+/*ここからフッター*/
 footer {
   width: 100%;
-  height: 100px; 
+  height: 100px;
   text-align: center;
   border-top: solid 3px black;
 }

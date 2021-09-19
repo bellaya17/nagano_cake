@@ -1,4 +1,8 @@
 <div class="container">
+  <div class="btn-warapper">
+    <%= link_to "+", new_admin_item_path, class:"btn-real" %>
+  </div>
+  
   <h1>商品一覧</h1>
 
   <table class="table">
@@ -12,12 +16,12 @@
     </thead>
 
     <tbody>
-      <% @items.each do |item, i| %>
+      <% @items.each_with_index do |item, i| %>
       <tr>
-        <td><%= i %></td>
+        <td><%= i+1 %></td>
         <td><%= link_to item.name, admin_item_path(item.id) %></td>
         <td><%= item.price %></td>
-        <td><%= item.genre %></td>
+        <td><%= item.genre.name %></td>
       </tr>
       <% end %>
     </tbody>
