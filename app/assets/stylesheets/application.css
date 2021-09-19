@@ -55,7 +55,7 @@ nav {
 
 .container {
   height: 600px;
-  
+
 }
 
 table{
@@ -113,6 +113,19 @@ table th,table td{
   border-bottom: none;
 }
 
+/*トップ画面*/
+.top-wrapper {
+  text-align: center;
+  margin-top: 30px;
+  margin-bottom: 30px;
+  line-height: 45px;
+}
+
+.new-items-wrapper{
+  
+}
+.item-contents{
+}
 /*About画面*/
 
 .about-wrapper {
