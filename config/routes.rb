@@ -24,5 +24,6 @@ Rails.application.routes.draw do
     resources :customers
     get 'homes/top'
     get 'homes/about'
+    get '/customers/unsubscribe'
   end
 end

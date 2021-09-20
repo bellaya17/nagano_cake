@@ -19,6 +19,11 @@
    padding: 0;
    box-sizing: border-box;
  }
+ 
+ .container {
+  height: 600px;
+
+}
 
 /*ここからヘッダー*/
 header {
@@ -53,10 +58,7 @@ nav {
 
 /*ここからcontainer*/
 
-.container {
-  height: 600px;
 
-}
 
 table{
   border-collapse: collapse;

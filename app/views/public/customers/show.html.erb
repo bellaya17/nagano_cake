@@ -1,12 +1,12 @@
 <div class="container">
-  <div class="show-heading"><h1>マイページ</h1></div>
-  
-  <div class="show-wrapper">
-    
-      <h2>登録情報</h2>
-      <%= link_to "編集する", edit_public_customer_path, class: "btn btn-secondary" %>
-   
-  
+
+  <div class="show-heading">
+    <h1>マイページ</h1>
+  </div>
+
+  <h2>登録情報</h2>
+
+  <%= link_to "編集する", edit_public_customer_path, class: "btn btn-secondary" %>
 
   <table class="customer-table">
     <tbody>
@@ -41,8 +41,9 @@
       </tr>
     </tbody>
   </table>
-  </div>
-  
 
-
+  <h2>注文履歴</h2>
+  <% if @customer.id == current_customer.id %>
+  <%= link_to "一覧を見る", edit_public_customer_path, class: "btn" %>
+  <% end %>
 </div>
