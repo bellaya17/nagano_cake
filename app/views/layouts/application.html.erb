@@ -17,7 +17,7 @@
       <nav>
         <ul class="nav-list">
         <li class="nav-list-item">
-          <%= link_to "マイページ", admin_items_path, class: 'btn btn-default' %>
+          <%= link_to "マイページ", public_customer_path, class: 'btn btn-default' %>
         </li>
 
         <li class="nav-list-item">
@@ -29,7 +29,7 @@
         </li>
 
         <li class="nav-list-item">
-          <%= link_to "ログアウト", destroy_admin_session_path, method: :delete, class: "btn btn-primary" %>
+          <%= link_to "ログアウト", destroy_customer_session_path, method: :delete, class: "btn btn-primary" %>
         </li>
         </ul>
       </nav>

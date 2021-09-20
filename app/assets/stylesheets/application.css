@@ -113,7 +113,7 @@ table th,table td{
   border-bottom: none;
 }
 
-/*トップ画面*/
+/*会員トップ画面*/
 .top-wrapper {
   text-align: center;
   margin-top: 30px;
@@ -122,11 +122,11 @@ table th,table td{
 }
 
 .new-items-wrapper{
-  
+
 }
 .item-contents{
 }
-/*About画面*/
+/*会員About画面*/
 
 .about-wrapper {
   text-align: center;
@@ -136,6 +136,21 @@ table th,table td{
   font-size: 50px;
   margin-top: 30px;
   margin-bottom: 30px;
+}
+
+/*会員詳細画面*/
+
+.show-heading {
+  position: relative;
+}
+
+.btn-secondary {
+  position: absolute;
+  top: 165px;
+  left: 190px;
+  display: inline-block;
+  border: solid 2px #BBBBBB;
+  border-radius: 3px;
 }
 
 /*ここからフッター*/
