@@ -1,6 +1,15 @@
 Rails.application.routes.draw do
-  
-  devise_for :admins
+
+  devise_for :customers, controllers: {
+    sessions: 'public/customers/sessions',
+    registrations: 'public/customers/registrations'
+  }
+
+  devise_for :admins, controllers: {
+    sessions: 'admin/admins/sessions',
+    registrations: 'admin/admins/registrations'
+  }
+
   resources :genres
 
   namespace :admin do

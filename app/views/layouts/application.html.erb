@@ -12,7 +12,29 @@
   <body>
     <header>
       <h1 class="heading">ながのCAKE</h1>
-      <% if admin_signed_in? %>
+      
+      <% if customer_signed_in? %>
+      <nav>
+        <ul class="nav-list">
+        <li class="nav-list-item">
+          <%= link_to "マイページ", admin_items_path, class: 'btn btn-default' %>
+        </li>
+
+        <li class="nav-list-item">
+          <%= link_to "商品一覧", admin_customers_path, class: "btn btn-primary" %>
+        </li>
+
+        <li class="nav-list-item">
+          <%= link_to "カート", admin_orders_path, class: "btn btn-primary" %>
+        </li>
+
+        <li class="nav-list-item">
+          <%= link_to "ログアウト", destroy_admin_session_path, method: :delete, class: "btn btn-primary" %>
+        </li>
+        </ul>
+      </nav>
+      
+      <% elsif admin_signed_in? %>
 
       <nav>
         <ul class="nav-list">
@@ -36,11 +58,13 @@
         <li class="nav-list-item">
           <%= link_to "ログアウト", destroy_admin_session_path, method: :delete, class: "btn btn-primary" %>
         </li>
+        </ul>
+      </nav>
+        
 
-        <% else %>
-
-        <!--会員側ログイン前のヘッダーと同じ？-->
-
+      <% else %>
+        <nav>
+        <ul class="nav-list">  
         <li class="nav-list-item">
           <%= link_to "About", admin_items_path, class: "btn btn-primary" %>
         </li>
@@ -54,9 +78,8 @@
         </li>
 
         <li class="nav-list-item">
-          <%= link_to "ログイン",  class: "btn btn-primary" %>
+          <%= link_to "ログイン", class: "btn btn-primary" %>
         </li>
-
         </ul>
       </nav>
       <% end %>
