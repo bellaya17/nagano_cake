@@ -24,6 +24,7 @@ Rails.application.routes.draw do
     resources :customers
     get 'homes/top'
     get 'homes/about'
-    get '/customers/unsubscribe'
+    get '/customers/unsubscribe' => 'customers#unsubscribe', as: 'unsubscribe'
+    patch '/customers/withdrawal' => 'cus#withdrawal', as: 'withdrawal'
   end
 end
