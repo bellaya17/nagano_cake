@@ -42,8 +42,13 @@
     </tbody>
   </table>
 
+  <h2>配送先一覧</h2>
+  <%= link_to "一覧を見る", public_addresses_path, class: "btn" %>
+
   <h2>注文履歴</h2>
   <%# if @customer == current_customer %>
   <%= link_to "一覧を見る", edit_public_customer_path, class: "btn" %>
   <%# end %>
+
+
 </div>

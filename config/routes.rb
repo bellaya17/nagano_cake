@@ -21,10 +21,15 @@ Rails.application.routes.draw do
   end
 
   namespace :public do
-    resources :customers
     get 'homes/top'
     get 'homes/about'
+    # 会員
     get '/customers/unsubscribe' => 'customers#unsubscribe', as: 'unsubscribe'
     patch '/customers/withdrawal' => 'cus#withdrawal', as: 'withdrawal'
+    resources :customers, only: [:show, :edit, :update, :destroy]
+    # 配送先住所
+    resources :addresses, only: [:index, :edit, :create, :update, :destroy]
+    # 商品
+    resources :items, only: [:index, :show]
   end
 end
