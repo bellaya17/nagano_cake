@@ -1,7 +1,7 @@
 class Public::CustomersController < ApplicationController
+
   def show
     @customer = Customer.find(params[:id])
-    # @customer = current_customer
   end
 
   def edit
@@ -13,15 +13,15 @@ class Public::CustomersController < ApplicationController
     @customer.update(customer_params)
     redirect_to public_customer_path(@customer.id)
   end
-  
+
   def unsubscribe
-    @customer = Customer.find(params[:id]) 
+    @customer = Customer.find(params[:id])
     @customer.update(is_active: true)
     reset_session
     redirect_to public_homes_top_path
   end
 
-  
+
 
   private
 
