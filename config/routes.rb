@@ -1,8 +1,5 @@
 Rails.application.routes.draw do
 
-  namespace :public do
-    get 'cart_items/index'
-  end
   devise_for :customers, controllers: {
     sessions: 'public/customers/sessions',
     registrations: 'public/customers/registrations'
@@ -34,5 +31,13 @@ Rails.application.routes.draw do
     resources :addresses, only: [:index, :edit, :create, :update, :destroy]
     # 商品
     resources :items, only: [:index, :show]
+    # カート内商品
+    resources :cart_items, only: [:index, :update, :destroy, :create]
+    # 注文
+    resources :orders
+    get "orders/confirm" => "orders#confirm"
+    post "orders/create_order" => "orders#create_order"
+    get "orders/thanks" => "orders#thanks"
+
   end
 end

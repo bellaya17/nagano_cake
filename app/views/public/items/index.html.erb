@@ -1,16 +1,16 @@
 <div class="container">
   <h1><%= "商品一覧 (全#{@items.count}件）" %></h1>
   <% @items.each do |item| %>
-  <table>
+  <table class="table table-bordered">
     <tr>
       <th>
-        <%= link_to item_path(item) do %>
+        <%= link_to public_item_path(item) do %>
         <%= attachment_image_tag(item, :image,size: "180x130", fallback: "no_image.jpg") %>
         <% end %>
       </th>
     </tr>
     <tr>
-      <th><%= link_to item.name, item_path(item) %></th>
+      <th><%= link_to item.name, public_item_path(item) %></th>
     </tr>
     <tr>
     </tr>

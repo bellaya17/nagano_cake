@@ -4,81 +4,82 @@
     <title>NaganoCake</title>
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
 
-  <body>
-    <header>
+  <body class="d-flex flex-column vh-100">
+    <header "shadow-sm">
       <h1 class="heading">ながのCAKE</h1>
-      
+
       <% if customer_signed_in? %>
-      <nav>
-        <ul class="nav-list">
-        <li class="nav-list-item">
-          <%= link_to "マイページ", public_customer_path, class: 'btn btn-default' %>
+      <nav class="navbar navbar-expand-lg navbar-light">
+        <ul class="navbar-nav ml-auto">
+        <li class="nav-item">
+          <%= link_to "マイページ", public_customer_path(current_customer), class: 'nav-link' %>
         </li>
 
-        <li class="nav-list-item">
-          <%= link_to "商品一覧", public_items_path, class: "btn btn-primary" %>
+        <li class="nav-item">
+          <%= link_to "商品一覧", public_items_path, class: "nav-link" %>
         </li>
 
-        <li class="nav-list-item">
-          <%= link_to "カート", admin_orders_path, class: "btn btn-primary" %>
+        <li class="nav-item">
+          <%= link_to "カート", public_cart_items_path, class: "nav-link" %>
         </li>
 
-        <li class="nav-list-item">
-          <%= link_to "ログアウト", destroy_customer_session_path, method: :delete, class: "btn btn-primary" %>
+        <li class="nav-item">
+          <%= link_to "ログアウト", destroy_customer_session_path, method: :delete, class: "nav-link" %>
         </li>
         </ul>
       </nav>
-      
+
       <% elsif admin_signed_in? %>
 
-      <nav>
-        <ul class="nav-list">
+      <nav class="navbar navbar-expand-lg navbar-light">
+        <ul class="navbar-nav ml-auto">
 
-        <li class="nav-list-item">
-          <%= link_to "商品一覧", admin_items_path, class: 'btn btn-default' %>
+        <li class="nav-item">
+          <%= link_to "商品一覧", admin_items_path, class: 'nav-link' %>
         </li>
 
-        <li class="nav-list-item">
-          <%= link_to "会員一覧", admin_customers_path, class: "btn btn-primary" %>
+        <li class="nav-item">
+          <%= link_to "会員一覧", admin_customers_path, class: "nav-link" %>
         </li>
 
-        <li class="nav-list-item">
-          <%= link_to "注文履歴一覧", admin_orders_path, class: "btn btn-primary" %>
+        <li class="nav-item">
+          <%= link_to "注文履歴一覧", admin_orders_path, class: "nav-link" %>
         </li>
 
-        <li class="nav-list-item">
-          <%= link_to "ジャンル一覧", genres_path, class: "btn btn-primary" %>
+        <li class="nav-item">
+          <%= link_to "ジャンル一覧", genres_path, class: "nav-link" %>
         </li>
 
-        <li class="nav-list-item">
-          <%= link_to "ログアウト", destroy_admin_session_path, method: :delete, class: "btn btn-primary" %>
+        <li class="nav-item">
+          <%= link_to "ログアウト", destroy_admin_session_path, method: :delete, class: "nav-link" %>
         </li>
         </ul>
       </nav>
-        
+
 
       <% else %>
-        <nav>
-        <ul class="nav-list">  
-        <li class="nav-list-item">
-          <%= link_to "About", admin_items_path, class: "btn btn-primary" %>
+        <nav class="navbar navbar-expand-lg navbar-light">
+        <ul class="navbar-nav ml-auto">
+        <li class="nav-item">
+          <%= link_to "About", public_homes_about_path, class: "nav-link" %>
         </li>
 
-        <li class="nav-list-item">
-          <%= link_to "商品一覧", admin_items_path, class: "btn btn-primary" %>
+        <li class="nav-item">
+          <%= link_to "商品一覧", public_items_path, class: "nav-link" %>
         </li>
 
-        <li class="nav-list-item">
-          <%= link_to "新規登録", admin_items_path, class: "btn btn-primary" %>
+        <li class="nav-item">
+          <%= link_to "新規登録", new_customer_registration_path, class: "nav-link" %>
         </li>
 
-        <li class="nav-list-item">
-          <%= link_to "ログイン", new_customer_session_path, class: "btn btn-primary" %>
+        <li class="nav-item">
+          <%= link_to "ログイン", new_customer_session_path, class: "nav-link" %>
         </li>
         </ul>
       </nav>

@@ -6,7 +6,6 @@
   <div class="field">
     <div class="name-form">
       <%= f.label "氏名" %><br />
-      <%#= f.label :last_name, :first_name, "氏名" %>
       <%= f.text_field :last_name, autofocus: true %>
       <%= f.text_field :first_name, autofocus: true %>
     </div>
@@ -15,7 +14,6 @@
   <div class="field">
     <div class="name-kana-form">
       <%= f.label "フリガナ" %><br />
-      <%#= f.label :last_name_kana, :first_name_kana, "フリガナ" %>
       <%= f.text_field :last_name_kana, autofocus: true %>
       <%= f.text_field :first_name_kana, autofocus: true %>
     </div>
@@ -41,7 +39,7 @@
     <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
   </div>
 
-  <%= f.submit "編集内容を保存" %>
-  <%= link_to "退会する", public_unsubscribe_path, class: "btn" %>
+  <%= f.submit "編集内容を保存", class: 'btn btn-outline-success'%>
+  <%= link_to "退会する", public_unsubscribe_path, class: "btn btn-outline-danger" %>
   <% end %>
 </div>

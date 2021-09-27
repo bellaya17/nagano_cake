@@ -1,0 +1,62 @@
+<div class="container">
+  <h1>注文情報確認</h1>
+    <table class="table">
+      <thead>
+        <tr>
+          <th>商品名</th>
+          <th>単価（税込）</th>
+          <th>数量</th>
+          <th>小計</th>
+        </tr>
+      </thead>
+      <tbody>
+        <% @cart_items.each do |cart_item| %>
+        <tr>
+          <td><%= cart_item.item.name %></td>
+          <td><%= (inside_cart.product.price * 1.1).to_i%></td>
+          <td><%= cart_item.amount %></td>
+          <td><%= (Item.find(cart_item.item_id).price * 1.1 * cart_item.amount).to_i %></td>
+        </tr>
+        <% end %>
+      </tbody>
+    </table>
+
+    <table class="table">
+      <tbody>
+        <tr>
+          <th>支払方法</th>
+          <td><%= @order.payment_method %></td>
+        </tr>
+        <tr>
+          <th>お届け先</th>
+          <td>
+            <p><%= @order.postal_code %>&emsp;<%= @order.address %></p>
+            <p><%= @order.name %></p>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+</div>
+
+<table class="table">
+  <tbody>
+    <tr>
+      <th>送料</th>
+      <td><%= @order.delivery_fee %></td>
+    </tr>
+    <tr>
+      <th>商品合計</th>
+      <td><%= @order.total_payment %></td>
+    </tr>
+    <tr>
+      <th>請求合計</th>
+      <td><%= @order.total_payment + @order.delivery_fee %></td>
+    </tr>
+  </tbody>
+</table>
+
+<div>
+   <%= form_with(model: @order, url: public_orders_create_order_path, method: :post, local: true) do |f| %>
+     <%= f.submit "注文を確定する",class:"btn btn-primary" %>
+   <% end %>
+</div>

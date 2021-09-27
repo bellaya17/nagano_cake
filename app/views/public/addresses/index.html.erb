@@ -1,25 +1,26 @@
 <div class="container">
-  
+  <h1>配送先登録/一覧</h1>
+
   <div class="new-wrapper">
   <%= form_with model: @address, url: public_addresses_path, local:true do |f| %>
 
   <h4>郵便番号（ハイフンなし）</h4>
   <%= f.number_field :postal_code %>
-  
+
   <h4>住所</h4>
   <%= f.text_area :address %>
-  
+
   <h4>宛名</h4>
   <%= f.text_field :name %>
-  
-  <%= f.submit '新規登録' %>
+
+  <%= f.submit '新規登録', class: 'btn btn-outline-success'%>
   <% end %>
-  
+
   </div>
-  
+
   <div class="index-wrapper">
-    <table class="table-address-table">
-      <thead>
+    <table class="table table-bordered">
+      <thead class="table-head" style="background-color:#F5F5F5;" >
         <tr>
           <th>郵便番号</th>
           <th>住所</th>
@@ -30,13 +31,13 @@
       </thead>
       <tbody>
         <% @addresses.each_with_index do |address| %>
-        
+
         <tr>
           <td><%= address.postal_code %></td>
           <td><%= address.address %></td>
           <td><%= address.name %></td>
-          <td><%= link_to "編集する", edit_public_address_path(address.id), class: "btn btn-secondary"%></td>
-          <td><%= link_to "削除する", public_address_path(address.id), class: "btn btn-secondary", method: :delete %></td>
+          <td><%= link_to "編集する", edit_public_address_path(address.id), class: 'btn btn-outline-success' %></td>
+          <td><%= link_to "削除する", public_address_path(address.id), class: "btn btn-outline-danger", method: :delete %></td>
         </tr>
         <% end %>
       </tbody>

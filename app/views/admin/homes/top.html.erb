@@ -1,24 +1,29 @@
 <div class="container">
   <h1>注文履歴一覧</h1>
 
-  <table class="table">
+  <table class="table table-bordered">
     <thead>
-      <tr>
-        <th>購入日時</th>
-        <th>購入者</th>
-        <th>注文個数</th>
+      <tr class="table-head" style="background-color:#F5F5F5;" >
+        <th scope="col">購入日時</th>
+        <th scope="col">購入者</th>
+        <th scope="col">注文個数</th>
       </tr>
     </thead>
 
-    <!--<tbody>-->
-      <%#= @orders.each do |order| %>
-    <!--  <tr>-->
-    <!--    <td></td>-->
-    <!--    <td></td>-->
-    <!--    <td></td>-->
-    <!--  </tr>-->
-    <!--  <%# end %>-->
-    <!--</tbody>-->
+    <tbody>
+      <% @orders.each do |order| %>
+        <tr>
+          <td><%=link_to order.created_at.strftime('%Y/%m/%d %H:%M:%S'), admins_order_path(order) %></td>
+          <td><%= order.customer.first_name %><%= order.customer.last_name %></td>
+          
+          <td>
+            <% order.order_details.all.each do |order_detail|  %>
+            <%= @amount = order_detail.amount %>
+            <% end %>
+          </td>
+        </tr>
+      <% end %>
+    </tbody>
   </table>
 
 </div>

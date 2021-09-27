@@ -1,18 +1,30 @@
 <div class="container">
   <h1>注文履歴詳細</h1>
 
-    <h4>購入者</h4>
-    <%= @customer.customer %>
+  <table class="table">
+    <tbody>
+      <tr>
+        <th>購入者</th>
+        <td><%=link_to @order.customer.last_name + @order.customer.first_name , admin_customer_path(@order.customer.id) %></td>
+      </tr>
+      <tr>
+        <th>注文日</th>
+        <td><%= @order.customer.created_at.strftime('%Y/%m/%d') %></td>
+      </tr>
+      <tr>
+        <th>配送先</th>
+        <td>
+          <p><%= @order.postal_code %><%= @order.address %></p>
+          <p><%= @order.name %></p>
+        </td>
+      </tr>
+      <tr>
+        <th>支払方法</th>
+        <td><%= @order.payment_method %></td>
+      </tr>
+    </tbody>
+  </table>
 
-    <h4>注文日</h4>
-    <%= @customer.last_name first_name %>
-
-    <h4>配送先</h4>
-    <%= @customer.last_name_kana first_name_kana %>
-
-    <h4>支払方法</h4>
-    <%= @customer.postal_code %>
-    
     <table class="table">
     <thead>
       <tr>
@@ -24,19 +36,34 @@
     </thead>
 
     <tbody>
-      <% @orders.each do |order| %>
+      <% @order_details.each do |order_detail| %>
       <tr>
-        <td></td>
-        <td></td>
-        <td></td>
-        <td></td>
+        <td><%= order_detail.item.name %></td>
+        <td><%= (order_detail.price * 1.1).to_i %></td>
+        <td><%= order_detail.amount %></td>
+        <td><%= (order_detail.price * order_detail.amount * 1.1).to_i %></td>
       </tr>
       <% end %>
     </tbody>
   </table>
 
-  
-  <h4>商品合計</h4>
-  <h4>送料</h4>
-  <h4></h4>
+  <table class="table">
+    <tbody>
+      <tr>
+        <th>商品合計</th>
+        <td><%= @order.total_payment %></td>
+      </tr>
+      <tr>
+        <th>送料</th>
+        <td><%= @order.delivery_fee %></td>
+      </tr>
+
+      <tr>
+        <th>請求合計金額</th>
+        <td><%= @order.total_payment + @order.delivery_fee %></td>
+      </tr>
+
+    </tbody>
+  </table>
+
 </div>

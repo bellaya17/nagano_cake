@@ -1,8 +1,8 @@
 <div class="container">
   <h1>会員一覧</h1>
 
-  <table class="table">
-    <thead>
+  <table class="table table-bordered">
+    <thead class="table-head" style="background-color:#F5F5F5;" >
       <tr>
         <th>会員ID</th>
         <th>氏名</th>
@@ -11,10 +11,13 @@
     </thead>
 
     <tbody>
-      <% @customers.each do |customer, i| %>
+      <% @customers.each_with_index do |customer, i| %>
       <tr>
-        <td><%= i %></td>
-        <td><%= link_to customer.name, admin_customer_path(customer.id) %></td>
+        <td><%= i+1 %></td>
+        <td>
+          <%= link_to customer.last_name, admin_customer_path(customer.id) %>
+          <%= link_to customer.first_name, admin_customer_path(customer.id) %>
+        </td>
         <td><%= customer.email %></td>
       </tr>
       <% end %>
