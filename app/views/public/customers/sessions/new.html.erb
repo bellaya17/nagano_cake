@@ -1,7 +1,9 @@
+<%= flash[:error] %>
+
 <h2>ログイン</h2>
 
   <h4>会員の方はこちらからログイン</h4>
-  
+
 <%= form_with model: @customer, url: customer_session_path, local: true do |f| %>
   <div class="field">
     <%= f.label :email, "メールアドレス"%><br />
@@ -27,4 +29,4 @@
 
 <h4>会員登録がお済みでない方</h4>
 <div><%= link_to "こちら",  new_customer_registration_path %>から新規登録を行ってください。</div>
-<%#= render "public/customers/shared/links" %>
+

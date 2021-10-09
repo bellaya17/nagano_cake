@@ -1,27 +1,51 @@
 <div class="container">
-  <h1><%= name.customer %>さんの会員詳細</h1>
+  <h1><%= @customer.last_name %><%= @customer.first_name %>さんの会員詳細</h1>
 
-    <h4>会員ID</h4>
-    <%= @customer.customer %>
+  <div class="row">
+    <div class="col-md-3"><h4>会員ID</h4></div>
+    <div class="col"><%= @customer.id %></div>
+  </div>
 
-    <h4>氏名</h4>
-    <%= @customer.last_name first_name %>
 
-    <h4>フリガナ</h4>
-    <%= @customer.last_name_kana first_name_kana %>
+  <div class="row">
+    <div class="col-md-3"><h4>氏名</h4></div>
+    <div class="col"><%= @customer.last_name %><%= @customer.first_name %></div>
+  </div>
 
-    <h4>郵便番号</h4>
-    <%= @customer.postal_code %>
+  <div class="row">
+    <div class="col-md-3"><h4>フリガナ</h4></div>
+    <div class="col"><%= @customer.last_name_kana %><%= @customer.first_name_kana %></div>
+  </div>
 
-    <h4>住所</h4>
-    <%= @customer.address %>
+  <div class="row">
+    <div class="col-md-3"><h4>郵便番号</h4></div>
+    <div class="col"><%= @customer.postal_code %></div>
+  </div>
 
-    <h4>電話番号</h4>
-    <%= @customer.telephone_number %>
+  <div class="row">
+    <div class="col-md-3"><h4>住所</h4></div>
+    <div class="col"><%= @customer.address %></div>
+  </div>
+  <div class="row">
+    <div class="col-md-3"><h4>電話番号</h4></div>
+    <div class="col"><%= @customer.telephone_number %></div>
+  </div>
 
-    <h4>メールアドレス</h4>
-    <%= @customer.email %>
+  <div class="row">
+    <div class="col-md-3"><h4>メールアドレス</h4></div>
+    <div class="col"><%= @customer.email %></div>
+  </div>
 
-    <%= link_to "編集する", edit_admin_customer_path(@customer), class:"btn btn-success"%>
-    <%= link_to "注文履歴一覧を見る", , class:"btn btn-success"%>
+  <div class="row">
+    <div class="col-md-3"><h4>会員ステータス</h4></div>
+      <% if @customer.is_active == true %>
+      <div class="col">有効</div>
+      <% else %>
+      <div class="col">退会</div>
+      <% end %>
+
+  </div>
+
+    <%= link_to "編集する", edit_admin_customer_path(@customer), class:"btn btn-outline-success"%>
+    <%= link_to "注文履歴一覧を見る", admin_root_path, class:"btn btn-outline-primary"%>
 </div>

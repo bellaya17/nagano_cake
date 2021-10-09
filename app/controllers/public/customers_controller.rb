@@ -15,11 +15,17 @@ class Public::CustomersController < ApplicationController
   end
 
   def unsubscribe
-    @customer = Customer.find(params[:id])
-    @customer.update(is_active: true)
-    reset_session
-    redirect_to public_homes_top_path
+     @customer = current_customer
   end
+
+  def withdraw
+    @customer = current_customer
+    if @customer.update(is_active: false)
+      sign_out current_customer
+    end
+    redirect_to public_root_path
+  end
+
 
 
 

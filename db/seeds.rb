@@ -9,4 +9,15 @@
 Admin.create!(
    email: 'test@hoge.com',
    password: 'testhoge',
+
 )
+Genre.create!(
+   name: 'test'
+   )
+Item.create!(
+   genre_id: 1,
+   name: 'test',
+   introduction: 'test',
+   price: 900
+
+   )

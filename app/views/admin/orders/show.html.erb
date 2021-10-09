@@ -1,32 +1,32 @@
 <div class="container">
   <h1>注文履歴詳細</h1>
 
-  <table class="table">
+  <table class="table table-bordered">
     <tbody>
       <tr>
-        <th>購入者</th>
+        <th class="table-head" style="background-color:#F5F5F5;">購入者</th>
         <td><%=link_to @order.customer.last_name + @order.customer.first_name , admin_customer_path(@order.customer.id) %></td>
       </tr>
       <tr>
-        <th>注文日</th>
+        <th class="table-head" style="background-color:#F5F5F5;">注文日</th>
         <td><%= @order.customer.created_at.strftime('%Y/%m/%d') %></td>
       </tr>
       <tr>
-        <th>配送先</th>
+        <th class="table-head" style="background-color:#F5F5F5;">配送先</th>
         <td>
-          <p><%= @order.postal_code %><%= @order.address %></p>
+          <p><%= "〒" + @order.postal_code %><%= @order.address %></p>
           <p><%= @order.name %></p>
         </td>
       </tr>
       <tr>
-        <th>支払方法</th>
-        <td><%= @order.payment_method %></td>
+        <th class="table-head" style="background-color:#F5F5F5;">支払方法</th>
+        <td><%= @order.payment_method_i18n %></td>
       </tr>
     </tbody>
   </table>
 
-    <table class="table">
-    <thead>
+    <table class="table table-bordered">
+    <thead class="table-head" style="background-color:#F5F5F5;">
       <tr>
         <th>商品名</th>
         <th>単価（税込）</th>
@@ -39,28 +39,28 @@
       <% @order_details.each do |order_detail| %>
       <tr>
         <td><%= order_detail.item.name %></td>
-        <td><%= (order_detail.price * 1.1).to_i %></td>
+        <td><%= order_detail.item.with_tax_price %></td>
         <td><%= order_detail.amount %></td>
-        <td><%= (order_detail.price * order_detail.amount * 1.1).to_i %></td>
+        <td><%= order_detail.subtotal %></td>
       </tr>
       <% end %>
     </tbody>
   </table>
 
-  <table class="table">
+  <table class="table table-bordered">
     <tbody>
       <tr>
-        <th>商品合計</th>
-        <td><%= @order.total_payment %></td>
+        <th class="table-head" style="background-color:#F5F5F5;">商品合計</th>
+        <td><%= @total_price %></td>
       </tr>
       <tr>
-        <th>送料</th>
-        <td><%= @order.delivery_fee %></td>
+        <th class="table-head" style="background-color:#F5F5F5;">送料</th>
+        <td><%= @delivery_fee %></td>
       </tr>
 
       <tr>
-        <th>請求合計金額</th>
-        <td><%= @order.total_payment + @order.delivery_fee %></td>
+        <th class="table-head" style="background-color:#F5F5F5;">請求合計金額</th>
+        <td><%= @total_payment %></td>
       </tr>
 
     </tbody>

@@ -59,4 +59,9 @@ class Public::Customers::RegistrationsController < Devise::RegistrationsControll
   # def after_inactive_sign_up_path_for(resource)
   #   super(resource)
   # end
+
+  def after_sign_up_path_for(resource)
+    public_root_path
+  end
+
 end
